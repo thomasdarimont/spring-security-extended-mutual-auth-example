@@ -1,0 +1,21 @@
+http:
+    client:
+        ssl:
+            client-key-password: changeit
+            key-alias: app1
+            key-store: classpath:cln_keystore.jks
+            key-store-password: changeit
+            trust-store: classpath:cln_truststore.jks
+            trust-store-password: changeit
+server:
+    port: 8443
+    ssl:
+        client-auth: need
+        enabled: true
+        key-alias: apps.tdlabs.local
+        key-password: changeit
+        key-store: classpath:srv_keystore.jks
+        key-store-password: changeit
+        key-store-type: PKCS12
+        trust-store: classpath:srv_truststore.jks
+        trust-store-password: changeit
