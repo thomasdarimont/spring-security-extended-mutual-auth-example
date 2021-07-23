@@ -68,6 +68,10 @@ public class SimpleRestClientTests {
 
     private PrivateKeyStrategy defaultAliasStrategy = (Map<String, PrivateKeyDetails> map, Socket socket) -> CLIENT_CERT;
 
+    private String getApiUrl() {
+        return "https://apps.tdlabs.local:" + port + "/api/hello";
+    }
+
     @Test
     public void givenValidCertificates_whenUsingHttpClient_thenCorrect()
             throws Exception {
@@ -161,9 +165,5 @@ public class SimpleRestClientTests {
                 .setSSLContext(sslContext)
                 .setSSLHostnameVerifier(new DefaultHostnameVerifier())
                 .build();
-    }
-
-    private String getApiUrl() {
-        return "https://apps.tdlabs.local:" + port + "/api/hello";
     }
 }

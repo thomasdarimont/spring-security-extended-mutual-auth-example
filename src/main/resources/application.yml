@@ -1,21 +1,27 @@
 http:
-    client:
-        ssl:
-            client-key-password: changeit
-            key-alias: app1
-            key-store: classpath:cln_keystore.jks
-            key-store-password: changeit
-            trust-store: classpath:cln_truststore.jks
-            trust-store-password: changeit
-server:
-    port: 8443
+  client:
     ssl:
-        client-auth: need
-        enabled: true
-        key-alias: apps.tdlabs.local
-        key-password: changeit
-        key-store: classpath:srv_keystore.jks
-        key-store-password: changeit
-        key-store-type: PKCS12
-        trust-store: classpath:srv_truststore.jks
-        trust-store-password: changeit
+      client-key-password: changeit
+      key-alias: app1
+      key-store: ./etc/certs/client-keystore.p12
+      key-store-password: changeit
+      trust-store: ./etc/certs/client-truststore.p12
+      trust-store-password: changeit
+      key-store-type: PKCS12
+      enabled-protocols: TLSv1.3
+
+server:
+  port: 8443
+  ssl:
+    client-auth: need
+    enabled: true
+    key-alias: apps.tdlabs.local
+    key-password: changeit
+    key-store: ./etc/certs/server-keystore.p12
+    key-store-password: changeit
+    key-store-type: PKCS12
+    trust-store: ./etc/certs/server-truststore.p12
+    trust-store-password: changeit
+    enabled-protocols: TLSv1.3
+    ciphers:
+
